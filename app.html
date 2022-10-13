@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*Container to center the map*/
+        #map {
+            height: 800px;
+            width:  800px;
+            margin: 0 auto;
+        }
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="map"></div>
+    </div>
+    <script>
+        function initMap() {
+            let mapOptions = {
+                /*center: new google.maps.LatLng('41.881832','-87.623177'),*/
+                center : {lat:-12.064845,lng :-77.041513},
+                zoom: 15,
+                draggable: false,
+                fullscreenControl: false,
+                streetViewControl: false,
+                zoomControl: false,
+                mapTypeControl: false,
+                disableDefaultUI: false,
+                scaleControl: false,
+                rotateControl: false,
+            }
+            let map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            var styleArray = [
+                {
+                    featureType: "all",
+                    stylers: [
+                        { visibility: "off" }
+                    ]
+                },
+                {
+                    featureType: "road",
+                    elementType: "geometry",
+
+                    stylers: [
+                        { visibility: "on" }
+                    ]
+                }
+            ];
+            map.setOptions({ styles: styleArray });
+            const trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGayRY7zyNAjQIrClBMT9lGzdqjk91XjU&callback=initMap"
+        defer></script>
+</body>
+
+</html>
