@@ -25,7 +25,7 @@ app.get('/view', (req, res)=> {
 });
 
 app.listen(3000)
-process(54, 60);
+process(720, 60);
 
 
 console.log('Server on port ${3000}')
