@@ -32,6 +32,7 @@ async function takeScreenshot() {
         headless: true,
         args: ['--use-gl=egl'],
     });
+    
     const page = await browser.newPage();
     await page.goto("http://localhost:3000/view", { waitUntil: 'networkidle2' });
 
